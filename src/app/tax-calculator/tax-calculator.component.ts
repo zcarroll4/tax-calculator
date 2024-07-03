@@ -36,10 +36,23 @@ export class TaxCalculatorComponent implements OnInit {
 
   ngOnInit(): void {
     this.filing_state = 'WV';
-    this.tax_year = 2023;
+    this.tax_year = 2024;
   }
 
   updateStandardDeduction() {
+    if (this.tax_year == 2024) {
+      switch (this.filing_status) {
+        case 'Single':
+          this.standard_deduction = 14600;
+          break;
+        case 'Married Filing Separately':
+          this.standard_deduction = 14600;
+          break;
+        case 'Married Filing Jointly':
+          this.standard_deduction = 29200;
+          break;
+      }
+    }
     if (this.tax_year == 2023) {
       switch (this.filing_status) {
         case 'Single':
@@ -112,6 +125,67 @@ export class TaxCalculatorComponent implements OnInit {
     this.taxesCalculated = true;
     this.calculateStateTaxes();
     this.calculateFica();
+    if (this.tax_year == 2024) {
+      if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
+        if (this.taxable_income > 11600) {
+          this.estimated_taxes = 1160;
+          if (this.taxable_income > 44725) {
+            this.estimated_taxes += 4266;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 11600) * .12);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 100525) {
+            this.estimated_taxes += 11743;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 47149) * .22);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 191950) {
+            this.estimated_taxes += 21942;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 100525) * .24);
+            this.calculateTotalTaxes();
+            return;
+          }
+        } else {
+          this.estimated_taxes = Math.round(this.taxable_income * .10);
+          this.calculateTotalTaxes();
+          return;
+        }
+      } else if (this.filing_status == 'Married Filing Jointly') {
+        if (this.taxable_income > 22000) {
+          this.estimated_taxes = 2200;
+          if (this.taxable_income > 89450) {
+            this.estimated_taxes += 8094;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 22000) * .12);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 190750) {
+            this.estimated_taxes += 22286;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 89450) * .22);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 364200) {
+            this.estimated_taxes += 41628;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 190750) * .24);
+            this.calculateTotalTaxes();
+            return;
+          }
+        } else {
+          this.estimated_taxes = Math.round(this.taxable_income * .10);
+          this.calculateTotalTaxes();
+          return;
+        }
+      }
+    }
     if (this.tax_year == 2023) {
       if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
         if (this.taxable_income > 11000) {
@@ -238,30 +312,59 @@ export class TaxCalculatorComponent implements OnInit {
 
   calculateStateTaxes() {
     if (!this.state_taxable_income) return;
-    if (this.state_taxable_income > 5000) {
-      this.estimated_state_taxes = 118;
-      if (this.state_taxable_income > 12500) {
-        this.estimated_state_taxes += 236.25;
+    if (this.tax_year == 2024) {
+      if (this.state_taxable_income > 10000) {
+        this.estimated_state_taxes = 236;
+        if (this.state_taxable_income > 25000) {
+          this.estimated_state_taxes += 472.5;
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 10000) * .0315);
+          return;
+        }
+        if (this.state_taxable_income > 40000) {
+          this.estimated_state_taxes += 531;
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 25000) * .0354);
+          return;
+        }
+        if (this.state_taxable_income > 60000) {
+          this.estimated_state_taxes += 944;
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 60000) * .0512);
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 60000) * .0472);
+          return;
+        }
       } else {
-        this.estimated_state_taxes += Math.round((this.state_taxable_income - 5000) * .0315);
+        this.estimated_state_taxes = Math.round(this.state_taxable_income * .0236);
         return;
       }
-      if (this.state_taxable_income > 20000) {
-        this.estimated_state_taxes += 265.5;
+    }
+    if (this.tax_year == 2023) {
+      if (this.state_taxable_income > 5000) {
+        this.estimated_state_taxes = 118;
+        if (this.state_taxable_income > 12500) {
+          this.estimated_state_taxes += 236.25;
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 5000) * .0315);
+          return;
+        }
+        if (this.state_taxable_income > 20000) {
+          this.estimated_state_taxes += 265.5;
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 12500) * .0354);
+          return;
+        }
+        if (this.state_taxable_income > 30000) {
+          this.estimated_state_taxes += 472;
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 30000) * .0512);
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 20000) * .0472);
+          return;
+        }
       } else {
-        this.estimated_state_taxes += Math.round((this.state_taxable_income - 12500) * .0354);
+        this.estimated_state_taxes = Math.round(this.state_taxable_income * .0236);
         return;
       }
-      if (this.state_taxable_income > 30000) {
-        this.estimated_state_taxes += 472;
-        this.estimated_state_taxes += Math.round((this.state_taxable_income - 30000) * .0512);
-      } else {
-        this.estimated_state_taxes += Math.round((this.state_taxable_income - 20000) * .0472);
-        return;
-      }
-    } else {
-      this.estimated_state_taxes = Math.round(this.state_taxable_income * .0236);
-      return;
     }
   }
 
@@ -287,7 +390,7 @@ export class TaxCalculatorComponent implements OnInit {
     if (!this.gross_income) return;
     // this.estimated_total_taxes = (this.estimated_state_taxes ?? 0) + (this.estimated_social_security_taxes ?? 0) + (this.estimated_medicare_taxes ?? 0) + (this.estimated_taxes ?? 0) - (this.estimated_employer_fica_contribution ?? 0);
     this.estimated_total_taxes = (this.estimated_state_taxes ?? 0) + (this.estimated_social_security_taxes ?? 0) + (this.estimated_medicare_taxes ?? 0) + (this.estimated_taxes ?? 0);
-    this.estimated_net_income = this.gross_income - this.estimated_total_taxes;
+    this.estimated_net_income = this.gross_income - this.estimated_total_taxes - (this.hsa_contributions ?? 0) - (this.traditional_retirement_contributions ?? 0);
   }
 
 
