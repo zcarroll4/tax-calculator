@@ -240,7 +240,7 @@
                 <h3>Social Security Taxes: </h3>
               </div>
               <div class="col">
-                <h3>{{ estimated_social_security_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_social_security_taxes??0) /( taxable_income??0) | percent  : '1.2-2'}})</h3>
+                <h3>{{ estimated_social_security_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_social_security_taxes??0) /( gross_income??0) | percent  : '1.2-2'}})</h3>
               </div>
             </div>
           </div>
@@ -250,7 +250,7 @@
                 <h3>Medicare Taxes: </h3>
               </div>
               <div class="col">
-                <h3>{{ estimated_medicare_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_medicare_taxes??0) /( taxable_income??0) | percent  : '1.2-2'}})</h3>
+                <h3>{{ estimated_medicare_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_medicare_taxes??0) /( gross_income??0) | percent  : '1.2-2'}})</h3>
               </div>
             </div>
           </div>
