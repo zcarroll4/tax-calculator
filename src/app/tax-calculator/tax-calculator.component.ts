@@ -20,10 +20,12 @@ export class TaxCalculatorComponent implements OnInit {
   estimated_state_taxes: number | undefined;
   traditional_retirement_contributions: number | undefined;
   hsa_contributions: number | undefined;
+  insurance_premiums: number | undefined;
   taxesCalculated: boolean = false;
   hasSelfEmploymentIncome: boolean = false;
   hasRetirementContributions: boolean = false;
   hasHSAContributions: boolean = false;
+  hasInsurancePremiums: boolean = false;
   estimated_social_security_taxes: number | undefined;
   estimated_medicare_taxes: number | undefined;
   estimated_self_employed_social_security_taxes: number | undefined;
@@ -85,11 +87,11 @@ export class TaxCalculatorComponent implements OnInit {
     if (!this.gross_income) return;
     if (!this.standard_deduction) return;
     if (!this.self_employment_income) {
-      this.taxable_income = this.gross_income - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0);
-      this.state_taxable_income = this.gross_income - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0);
+      this.taxable_income = this.gross_income - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.state_taxable_income = this.gross_income - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
     } else {
-      this.taxable_income = +this.gross_income + +this.self_employment_income - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0);
-      this.state_taxable_income = +this.gross_income + +this.self_employment_income - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0);
+      this.taxable_income = +this.gross_income + +this.self_employment_income - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.state_taxable_income = +this.gross_income + +this.self_employment_income - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
     }
   }
 
@@ -103,6 +105,10 @@ export class TaxCalculatorComponent implements OnInit {
 
   toggleHSAContributions(){
     this.hasHSAContributions = true;
+  }
+
+  toggleInsurancePremiums(){
+    this.hasInsurancePremiums = true;
   }
 
   calculateTaxes() {
@@ -122,6 +128,7 @@ export class TaxCalculatorComponent implements OnInit {
     if (this.hasSelfEmploymentIncome && !this.self_employment_income) this.hasSelfEmploymentIncome = false;
     if (this.hasRetirementContributions && !this.traditional_retirement_contributions) this.hasRetirementContributions = false;
     if (this.hasHSAContributions && !this.hsa_contributions) this.hasHSAContributions = false;
+    if (this.hasInsurancePremiums && !this.insurance_premiums) this.hasInsurancePremiums = false;
     this.taxesCalculated = true;
     this.calculateStateTaxes();
     this.calculateFica();
@@ -408,6 +415,7 @@ export class TaxCalculatorComponent implements OnInit {
     if(!this.self_employment_income) this.hasSelfEmploymentIncome = false;
     if(!this.traditional_retirement_contributions) this.hasRetirementContributions = false;
     if(!this.hsa_contributions) this.hasHSAContributions = false;
+    if(!this.insurance_premiums) this.hasInsurancePremiums = false;
   }
 
 }
