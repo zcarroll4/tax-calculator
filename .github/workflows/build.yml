@@ -21,4 +21,4 @@ jobs:
       run: npm install
 
     - name: Build Angular app
-      run: ng build --output-path docs --base-href /tax-calculator/
+      run: npm run build
