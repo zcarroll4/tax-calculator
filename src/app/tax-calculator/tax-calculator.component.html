@@ -92,7 +92,7 @@
             <button *ngIf="!hasInsurancePremiums" [disabled]="taxesCalculated" class="btn btn-success w-50"
               (click)="toggleInsurancePremiums()">Add</button>
             <input *ngIf="hasInsurancePremiums" type="tel" [disabled]="taxesCalculated" step="1000"
-              class="text-center w-75 m-auto form-control" [(ngModel)]="hsa_contributions" />
+              class="text-center w-75 m-auto form-control" [(ngModel)]="insurance_premiums" />
           </div>
         </div>
       </div>
