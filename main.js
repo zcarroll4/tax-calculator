@@ -1,56 +1,6 @@
 "use strict";
 (self["webpackChunktd_calc"] = self["webpackChunktd_calc"] || []).push([["main"],{
 
-/***/ 3966:
-/*!***************************************!*\
-  !*** ./src/app/app-routing.module.ts ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AppRoutingModule: () => (/* binding */ AppRoutingModule)
-/* harmony export */ });
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ 7947);
-/* harmony import */ var _tax_calculator_tax_calculator_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./tax-calculator/tax-calculator.component */ 8517);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 1699);
-
-
-
-
-const routes = [{
-  path: '',
-  component: _tax_calculator_tax_calculator_component__WEBPACK_IMPORTED_MODULE_0__.TaxCalculatorComponent,
-  data: {
-    title: 'Home'
-  }
-}, {
-  path: 'calculator',
-  component: _tax_calculator_tax_calculator_component__WEBPACK_IMPORTED_MODULE_0__.TaxCalculatorComponent,
-  data: {
-    title: 'Home'
-  }
-}];
-class AppRoutingModule {
-  static #_ = this.ɵfac = function AppRoutingModule_Factory(t) {
-    return new (t || AppRoutingModule)();
-  };
-  static #_2 = this.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
-    type: AppRoutingModule
-  });
-  static #_3 = this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
-    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule.forRoot(routes), _angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule]
-  });
-}
-(function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppRoutingModule, {
-    imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule],
-    exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__.RouterModule]
-  });
-})();
-
-/***/ }),
-
 /***/ 6401:
 /*!**********************************!*\
   !*** ./src/app/app.component.ts ***!
@@ -62,97 +12,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   AppComponent: () => (/* binding */ AppComponent)
 /* harmony export */ });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 1699);
-/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ 7947);
-
-
-class AppComponent {
-  constructor() {
-    this.title = 'td-calc';
-  }
-  static #_ = this.ɵfac = function AppComponent_Factory(t) {
-    return new (t || AppComponent)();
-  };
-  static #_2 = this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-    type: AppComponent,
-    selectors: [["app-root"]],
-    decls: 1,
-    vars: 0,
-    template: function AppComponent_Template(rf, ctx) {
-      if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "router-outlet");
-      }
-    },
-    dependencies: [_angular_router__WEBPACK_IMPORTED_MODULE_1__.RouterOutlet],
-    styles: ["/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsInNvdXJjZVJvb3QiOiIifQ== */"]
-  });
-}
-
-/***/ }),
-
-/***/ 8629:
-/*!*******************************!*\
-  !*** ./src/app/app.module.ts ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   AppModule: () => (/* binding */ AppModule)
-/* harmony export */ });
-/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ 6480);
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app-routing.module */ 3966);
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./app.component */ 6401);
-/* harmony import */ var _tax_calculator_tax_calculator_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./tax-calculator/tax-calculator.component */ 8517);
-/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/forms */ 8849);
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/core */ 1699);
-
-
-
-
-
-
-class AppModule {
-  static #_ = this.ɵfac = function AppModule_Factory(t) {
-    return new (t || AppModule)();
-  };
-  static #_2 = this.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineNgModule"]({
-    type: AppModule,
-    bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent]
-  });
-  static #_3 = this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵdefineInjector"]({
-    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.BrowserModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule]
-  });
-}
-(function () {
-  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_3__["ɵɵsetNgModuleScope"](AppModule, {
-    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_1__.AppComponent, _tax_calculator_tax_calculator_component__WEBPACK_IMPORTED_MODULE_2__.TaxCalculatorComponent],
-    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__.BrowserModule, _app_routing_module__WEBPACK_IMPORTED_MODULE_0__.AppRoutingModule, _angular_forms__WEBPACK_IMPORTED_MODULE_5__.FormsModule]
-  });
-})();
-
-/***/ }),
-
-/***/ 8517:
-/*!************************************************************!*\
-  !*** ./src/app/tax-calculator/tax-calculator.component.ts ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   TaxCalculatorComponent: () => (/* binding */ TaxCalculatorComponent)
-/* harmony export */ });
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 1699);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common */ 6575);
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/forms */ 8849);
 
 
 
-function TaxCalculatorComponent_div_8_button_44_Template(rf, ctx) {
+function AppComponent_div_8_button_44_Template(rf, ctx) {
   if (rf & 1) {
     const _r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TaxCalculatorComponent_div_8_button_44_Template_button_click_0_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_div_8_button_44_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r12);
       const ctx_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r11.toggleSelfEmploymentIncome());
@@ -165,11 +34,11 @@ function TaxCalculatorComponent_div_8_button_44_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r3.taxesCalculated);
   }
 }
-function TaxCalculatorComponent_div_8_input_45_Template(rf, ctx) {
+function AppComponent_div_8_input_45_Template(rf, ctx) {
   if (rf & 1) {
     const _r14 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_input_45_Template_input_ngModelChange_0_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_input_45_Template_input_ngModelChange_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r14);
       const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r13.self_employment_income = $event);
@@ -181,11 +50,11 @@ function TaxCalculatorComponent_div_8_input_45_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r4.taxesCalculated)("ngModel", ctx_r4.self_employment_income);
   }
 }
-function TaxCalculatorComponent_div_8_button_51_Template(rf, ctx) {
+function AppComponent_div_8_button_51_Template(rf, ctx) {
   if (rf & 1) {
     const _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TaxCalculatorComponent_div_8_button_51_Template_button_click_0_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_div_8_button_51_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r16);
       const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r15.toggleRetirementContributions());
@@ -198,11 +67,11 @@ function TaxCalculatorComponent_div_8_button_51_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r5.taxesCalculated);
   }
 }
-function TaxCalculatorComponent_div_8_input_52_Template(rf, ctx) {
+function AppComponent_div_8_input_52_Template(rf, ctx) {
   if (rf & 1) {
     const _r18 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_input_52_Template_input_ngModelChange_0_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_input_52_Template_input_ngModelChange_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r18);
       const ctx_r17 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r17.traditional_retirement_contributions = $event);
@@ -214,11 +83,11 @@ function TaxCalculatorComponent_div_8_input_52_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r6.taxesCalculated)("ngModel", ctx_r6.traditional_retirement_contributions);
   }
 }
-function TaxCalculatorComponent_div_8_button_58_Template(rf, ctx) {
+function AppComponent_div_8_button_58_Template(rf, ctx) {
   if (rf & 1) {
     const _r20 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TaxCalculatorComponent_div_8_button_58_Template_button_click_0_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_div_8_button_58_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r20);
       const ctx_r19 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r19.toggleHSAContributions());
@@ -231,11 +100,11 @@ function TaxCalculatorComponent_div_8_button_58_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r7.taxesCalculated);
   }
 }
-function TaxCalculatorComponent_div_8_input_59_Template(rf, ctx) {
+function AppComponent_div_8_input_59_Template(rf, ctx) {
   if (rf & 1) {
     const _r22 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_input_59_Template_input_ngModelChange_0_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_input_59_Template_input_ngModelChange_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r22);
       const ctx_r21 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r21.hsa_contributions = $event);
@@ -247,11 +116,11 @@ function TaxCalculatorComponent_div_8_input_59_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r8.taxesCalculated)("ngModel", ctx_r8.hsa_contributions);
   }
 }
-function TaxCalculatorComponent_div_8_button_65_Template(rf, ctx) {
+function AppComponent_div_8_button_65_Template(rf, ctx) {
   if (rf & 1) {
     const _r24 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "button", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TaxCalculatorComponent_div_8_button_65_Template_button_click_0_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_div_8_button_65_Template_button_click_0_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r24);
       const ctx_r23 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r23.toggleInsurancePremiums());
@@ -264,11 +133,11 @@ function TaxCalculatorComponent_div_8_button_65_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r9.taxesCalculated);
   }
 }
-function TaxCalculatorComponent_div_8_input_66_Template(rf, ctx) {
+function AppComponent_div_8_input_66_Template(rf, ctx) {
   if (rf & 1) {
     const _r26 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "input", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_input_66_Template_input_ngModelChange_0_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_input_66_Template_input_ngModelChange_0_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r26);
       const ctx_r25 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r25.insurance_premiums = $event);
@@ -280,14 +149,14 @@ function TaxCalculatorComponent_div_8_input_66_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", ctx_r10.taxesCalculated)("ngModel", ctx_r10.insurance_premiums);
   }
 }
-function TaxCalculatorComponent_div_8_Template(rf, ctx) {
+function AppComponent_div_8_Template(rf, ctx) {
   if (rf & 1) {
     const _r28 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div")(1, "div", 13)(2, "div", 14)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Tax Year");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "div", 9)(6, "select", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_Template_select_ngModelChange_6_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_Template_select_ngModelChange_6_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r28);
       const ctx_r27 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r27.tax_year = $event);
@@ -305,7 +174,7 @@ function TaxCalculatorComponent_div_8_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](16, "Filing Status");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](17, "div", 9)(18, "select", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_Template_select_ngModelChange_18_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_Template_select_ngModelChange_18_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r28);
       const ctx_r29 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r29.filing_status = $event);
@@ -323,7 +192,7 @@ function TaxCalculatorComponent_div_8_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](28, "Gross Income");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](29, "div", 9)(30, "input", 17);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_Template_input_ngModelChange_30_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_Template_input_ngModelChange_30_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r28);
       const ctx_r30 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r30.gross_income = $event);
@@ -333,7 +202,7 @@ function TaxCalculatorComponent_div_8_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](34, "State");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 9)(36, "select", 15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function TaxCalculatorComponent_div_8_Template_select_ngModelChange_36_listener($event) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ngModelChange", function AppComponent_div_8_Template_select_ngModelChange_36_listener($event) {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r28);
       const ctx_r31 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r31.filing_state = $event);
@@ -345,25 +214,25 @@ function TaxCalculatorComponent_div_8_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](42, "Self Employment Income");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](43, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](44, TaxCalculatorComponent_div_8_button_44_Template, 2, 1, "button", 18)(45, TaxCalculatorComponent_div_8_input_45_Template, 1, 2, "input", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](44, AppComponent_div_8_button_44_Template, 2, 1, "button", 18)(45, AppComponent_div_8_input_45_Template, 1, 2, "input", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](46, "div", 13)(47, "div", 14)(48, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](49, "401K (Traditional)");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](50, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](51, TaxCalculatorComponent_div_8_button_51_Template, 2, 1, "button", 18)(52, TaxCalculatorComponent_div_8_input_52_Template, 1, 2, "input", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](51, AppComponent_div_8_button_51_Template, 2, 1, "button", 18)(52, AppComponent_div_8_input_52_Template, 1, 2, "input", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](53, "div", 13)(54, "div", 14)(55, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](56, "HSA Contributions");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](57, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](58, TaxCalculatorComponent_div_8_button_58_Template, 2, 1, "button", 18)(59, TaxCalculatorComponent_div_8_input_59_Template, 1, 2, "input", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](58, AppComponent_div_8_button_58_Template, 2, 1, "button", 18)(59, AppComponent_div_8_input_59_Template, 1, 2, "input", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](60, "div", 13)(61, "div", 14)(62, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](63, "Insurance Premiums");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](64, "div", 9);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](65, TaxCalculatorComponent_div_8_button_65_Template, 2, 1, "button", 18)(66, TaxCalculatorComponent_div_8_input_66_Template, 1, 2, "input", 19);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](65, AppComponent_div_8_button_65_Template, 2, 1, "button", 18)(66, AppComponent_div_8_input_66_Template, 1, 2, "input", 19);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
@@ -394,11 +263,11 @@ function TaxCalculatorComponent_div_8_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r0.hasInsurancePremiums);
   }
 }
-function TaxCalculatorComponent_div_38_Template(rf, ctx) {
+function AppComponent_div_38_Template(rf, ctx) {
   if (rf & 1) {
     const _r33 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 21)(1, "div", 22)(2, "button", 23);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TaxCalculatorComponent_div_38_Template_button_click_2_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_div_38_Template_button_click_2_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r33);
       const ctx_r32 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r32.calculateTaxes());
@@ -412,7 +281,7 @@ function TaxCalculatorComponent_div_38_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("disabled", !ctx_r1.tax_year || !ctx_r1.gross_income || !ctx_r1.filing_status || !ctx_r1.filing_state);
   }
 }
-function TaxCalculatorComponent_div_39_div_13_Template(rf, ctx) {
+function AppComponent_div_39_div_13_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 26)(1, "div", 27)(2, "div", 9)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Self Employment Income: ");
@@ -428,7 +297,7 @@ function TaxCalculatorComponent_div_39_div_13_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](8, 1, ctx_r34.self_employment_income, "USD", "symbol", "1.0-0"));
   }
 }
-function TaxCalculatorComponent_div_39_div_25_Template(rf, ctx) {
+function AppComponent_div_39_div_25_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 26)(1, "div", 27)(2, "div", 9)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Trad. 401k Deduction: ");
@@ -444,7 +313,7 @@ function TaxCalculatorComponent_div_39_div_25_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](8, 1, ctx_r35.traditional_retirement_contributions, "USD", "symbol", "1.0-0"), "");
   }
 }
-function TaxCalculatorComponent_div_39_div_26_Template(rf, ctx) {
+function AppComponent_div_39_div_26_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 26)(1, "div", 27)(2, "div", 9)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "HSA Deduction: ");
@@ -460,7 +329,7 @@ function TaxCalculatorComponent_div_39_div_26_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](8, 1, ctx_r36.hsa_contributions, "USD", "symbol", "1.0-0"), "");
   }
 }
-function TaxCalculatorComponent_div_39_div_27_Template(rf, ctx) {
+function AppComponent_div_39_div_27_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 26)(1, "div", 27)(2, "div", 9)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "Insurance Premiums: ");
@@ -476,7 +345,7 @@ function TaxCalculatorComponent_div_39_div_27_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](8, 1, ctx_r37.insurance_premiums, "USD", "symbol", "1.0-0"), "");
   }
 }
-function TaxCalculatorComponent_div_39_div_113_Template(rf, ctx) {
+function AppComponent_div_39_div_113_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 26)(1, "div", 27)(2, "div", 9)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "401k Contributions: ");
@@ -494,7 +363,7 @@ function TaxCalculatorComponent_div_39_div_113_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](8, 2, ctx_r38.traditional_retirement_contributions, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](9, 7, ((tmp_0_0 = ctx_r38.traditional_retirement_contributions) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0) / ((tmp_0_0 = ctx_r38.gross_income) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0), "1.2-2"), ")");
   }
 }
-function TaxCalculatorComponent_div_39_div_114_Template(rf, ctx) {
+function AppComponent_div_39_div_114_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 26)(1, "div", 27)(2, "div", 9)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "HSA Contributions: ");
@@ -512,7 +381,7 @@ function TaxCalculatorComponent_div_39_div_114_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](8, 2, ctx_r39.hsa_contributions, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](9, 7, ((tmp_0_0 = ctx_r39.hsa_contributions) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0) / ((tmp_0_0 = ctx_r39.gross_income) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0), "1.2-2"), ")");
   }
 }
-function TaxCalculatorComponent_div_39_Template(rf, ctx) {
+function AppComponent_div_39_Template(rf, ctx) {
   if (rf & 1) {
     const _r41 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 24)(1, "div", 22)(2, "h2", 25);
@@ -525,7 +394,7 @@ function TaxCalculatorComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](12, "currency");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, TaxCalculatorComponent_div_39_div_13_Template, 9, 6, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](13, AppComponent_div_39_div_13_Template, 9, 6, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "h2", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15, "Deductions:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -536,7 +405,7 @@ function TaxCalculatorComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](23);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](24, "currency");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](25, TaxCalculatorComponent_div_39_div_25_Template, 9, 6, "div", 28)(26, TaxCalculatorComponent_div_39_div_26_Template, 9, 6, "div", 28)(27, TaxCalculatorComponent_div_39_div_27_Template, 9, 6, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](25, AppComponent_div_39_div_25_Template, 9, 6, "div", 28)(26, AppComponent_div_39_div_26_Template, 9, 6, "div", 28)(27, AppComponent_div_39_div_27_Template, 9, 6, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](28, "h2", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](29, "Taxable Income:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -609,7 +478,7 @@ function TaxCalculatorComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](111, "currency");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](112, "percent");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](113, TaxCalculatorComponent_div_39_div_113_Template, 10, 10, "div", 28)(114, TaxCalculatorComponent_div_39_div_114_Template, 10, 10, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](113, AppComponent_div_39_div_113_Template, 10, 10, "div", 28)(114, AppComponent_div_39_div_114_Template, 10, 10, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](115, "div", 26)(116, "div", 27)(117, "div", 9)(118, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](119, "Net Income: ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
@@ -619,7 +488,7 @@ function TaxCalculatorComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](124, "percent");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](125, "button", 30);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function TaxCalculatorComponent_div_39_Template_button_click_125_listener() {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_div_39_Template_button_click_125_listener() {
       _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r41);
       const ctx_r40 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
       return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r40.resetData());
@@ -671,7 +540,7 @@ function TaxCalculatorComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](123, 88, ctx_r2.estimated_net_income, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](124, 93, ((tmp_16_0 = ctx_r2.estimated_net_income) !== null && tmp_16_0 !== undefined ? tmp_16_0 : 0) / ((tmp_16_0 = ctx_r2.gross_income) !== null && tmp_16_0 !== undefined ? tmp_16_0 : 0), "1.2-2"), ")");
   }
 }
-class TaxCalculatorComponent {
+class AppComponent {
   constructor() {
     this.taxesCalculated = false;
     this.hasSelfEmploymentIncome = false;
@@ -1043,22 +912,22 @@ class TaxCalculatorComponent {
     if (!this.hsa_contributions) this.hasHSAContributions = false;
     if (!this.insurance_premiums) this.hasInsurancePremiums = false;
   }
-  static #_ = this.ɵfac = function TaxCalculatorComponent_Factory(t) {
-    return new (t || TaxCalculatorComponent)();
+  static #_ = this.ɵfac = function AppComponent_Factory(t) {
+    return new (t || AppComponent)();
   };
   static #_2 = this.ɵcmp = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({
-    type: TaxCalculatorComponent,
-    selectors: [["app-tax-calculator"]],
+    type: AppComponent,
+    selectors: [["app-root"]],
     decls: 40,
     vars: 6,
     consts: [[1, "col-12", "offset-0", "col-md-6", "offset-md-3"], [1, "container", "my-3", "pt-3", "border", "shadow"], [1, "row", "border-bottom"], [1, "col-12", "text-center", "p-2"], [1, "row", "py-1"], [4, "ngIf"], [1, "d-none"], [1, "row", "my-2"], [1, "col-8"], [1, "col"], [1, "form-control", "bg-secondary", "text-white"], ["class", "row border-top mt-2", 4, "ngIf"], ["class", "row mt-1", 4, "ngIf"], [1, "row", "my-1"], [1, "col-7"], [1, "form-select", "w-75", "m-auto", "text-center", 3, "disabled", "ngModel", "ngModelChange"], ["sel", ""], ["type", "tel", "step", "1000", 1, "text-center", "w-75", "m-auto", "form-control", 3, "disabled", "ngModel", "ngModelChange"], ["class", "btn btn-success w-50", 3, "disabled", "click", 4, "ngIf"], ["type", "tel", "step", "1000", "class", "text-center w-75 m-auto form-control", 3, "disabled", "ngModel", "ngModelChange", 4, "ngIf"], [1, "btn", "btn-success", "w-50", 3, "disabled", "click"], [1, "row", "border-top", "mt-2"], [1, "col-10", "m-auto", "py-3"], [1, "btn", "w-100", "btn-success", "p-2", "fs-3", 3, "disabled", "click"], [1, "row", "mt-1"], [1, "text-start", "text-decoration-underline"], [1, "w-100"], [1, "row", "py-3"], ["class", "w-100", 4, "ngIf"], [1, "w-100", "d-none"], [1, "btn", "w-100", "btn-danger", "p-2", "fs-4", 3, "click"]],
-    template: function TaxCalculatorComponent_Template(rf, ctx) {
+    template: function AppComponent_Template(rf, ctx) {
       if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0)(1, "div", 1)(2, "div", 2)(3, "div", 3)(4, "h1");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](5, "2024 Tax Estimator Calculator");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](6, "div", 4)(7, "div", 3);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, TaxCalculatorComponent_div_8_Template, 67, 16, "div", 5);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](8, AppComponent_div_8_Template, 67, 16, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 6)(10, "div", 7)(11, "div", 8)(12, "h3");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](13, "Standard Deduction");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
@@ -1083,7 +952,7 @@ class TaxCalculatorComponent {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](35, "div", 9)(36, "label", 10);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](37);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](38, TaxCalculatorComponent_div_38_Template, 4, 1, "div", 11)(39, TaxCalculatorComponent_div_39_Template, 127, 96, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](38, AppComponent_div_38_Template, 4, 1, "div", 11)(39, AppComponent_div_39_Template, 127, 96, "div", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
       }
       if (rf & 2) {
@@ -1102,9 +971,48 @@ class TaxCalculatorComponent {
       }
     },
     dependencies: [_angular_common__WEBPACK_IMPORTED_MODULE_1__.NgIf, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgSelectOption, _angular_forms__WEBPACK_IMPORTED_MODULE_2__["ɵNgSelectMultipleOption"], _angular_forms__WEBPACK_IMPORTED_MODULE_2__.DefaultValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.SelectControlValueAccessor, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgControlStatus, _angular_forms__WEBPACK_IMPORTED_MODULE_2__.NgModel, _angular_common__WEBPACK_IMPORTED_MODULE_1__.PercentPipe, _angular_common__WEBPACK_IMPORTED_MODULE_1__.CurrencyPipe],
-    styles: ["@media only screen and (max-width: 500px) {\n  .container[_ngcontent-%COMP%] {\n    border: 0px !important;\n    margin-top: 0px !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvdGF4LWNhbGN1bGF0b3IvdGF4LWNhbGN1bGF0b3IuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7RUFDQTtJQUNFLHNCQUFBO0lBQ0EsMEJBQUE7RUFDQTtBQUNGIiwic291cmNlc0NvbnRlbnQiOlsiQG1lZGlhIG9ubHkgc2NyZWVuIGFuZCAobWF4LXdpZHRoIDogNTAwcHgpIHtcbi5jb250YWluZXJ7XG4gIGJvcmRlcjowcHggIWltcG9ydGFudDtcbiAgbWFyZ2luLXRvcDogMHB4ICFpbXBvcnRhbnQ7XG59XG59XG4iXSwic291cmNlUm9vdCI6IiJ9 */"]
+    styles: ["@media only screen and (max-width: 500px) {\n  .container[_ngcontent-%COMP%] {\n    border: 0px !important;\n    margin-top: 0px !important;\n  }\n}\n/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8uL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0k7SUFDRSxzQkFBQTtJQUNBLDBCQUFBO0VBQ0o7QUFDRiIsInNvdXJjZXNDb250ZW50IjpbIkBtZWRpYSBvbmx5IHNjcmVlbiBhbmQgKG1heC13aWR0aCA6IDUwMHB4KSB7XG4gICAgLmNvbnRhaW5lcntcbiAgICAgIGJvcmRlcjowcHggIWltcG9ydGFudDtcbiAgICAgIG1hcmdpbi10b3A6IDBweCAhaW1wb3J0YW50O1xuICAgIH1cbiAgICB9XG4gICAgIl0sInNvdXJjZVJvb3QiOiIifQ== */"]
   });
 }
+
+/***/ }),
+
+/***/ 8629:
+/*!*******************************!*\
+  !*** ./src/app/app.module.ts ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   AppModule: () => (/* binding */ AppModule)
+/* harmony export */ });
+/* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/platform-browser */ 6480);
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app.component */ 6401);
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ 8849);
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 1699);
+
+
+
+
+class AppModule {
+  static #_ = this.ɵfac = function AppModule_Factory(t) {
+    return new (t || AppModule)();
+  };
+  static #_2 = this.ɵmod = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({
+    type: AppModule,
+    bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent]
+  });
+  static #_3 = this.ɵinj = /*@__PURE__*/_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({
+    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__.BrowserModule, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormsModule]
+  });
+}
+(function () {
+  (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](AppModule, {
+    declarations: [_app_component__WEBPACK_IMPORTED_MODULE_0__.AppComponent],
+    imports: [_angular_platform_browser__WEBPACK_IMPORTED_MODULE_2__.BrowserModule, _angular_forms__WEBPACK_IMPORTED_MODULE_3__.FormsModule]
+  });
+})();
 
 /***/ }),
 
