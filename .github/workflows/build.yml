@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./docs
+        working-directory: ./test
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -29,5 +29,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: angular-build-artifacts
-         path: |
-            docs/
+         path: docs/
