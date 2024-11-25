@@ -26,16 +26,16 @@
             "outputPath": "docs/",
             "baseHref": "/tax-calculator/", 
             "index": "src/index.html",
-            "main": "src/tax-calculator/main.ts",
-            "polyfills": "src/tax-calculator/polyfills.ts",
+            "main": "src/main.ts",
+            "polyfills": "src//polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/tax-calculator/favicon.ico",
+              "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/tax-calculator/styles.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           },
