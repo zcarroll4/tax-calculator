@@ -17,11 +17,14 @@ export class AppComponent implements OnInit {
   estimated_taxes: number | undefined;
   estimated_state_taxes: number | undefined;
   traditional_retirement_contributions: number | undefined;
+  roth_retirement_contributions: number | undefined;
+  total_retirement_contributions: number | undefined;
   hsa_contributions: number | undefined;
   insurance_premiums: number | undefined;
   taxesCalculated: boolean = false;
   hasSelfEmploymentIncome: boolean = false;
   hasRetirementContributions: boolean = false;
+  hasRetirementRothContributions: boolean = false;
   hasHSAContributions: boolean = false;
   hasInsurancePremiums: boolean = false;
   estimated_social_security_taxes: number | undefined;
@@ -101,6 +104,10 @@ export class AppComponent implements OnInit {
     this.hasRetirementContributions = true;
   }
 
+  toggleRetirementRothContributions(){
+    this.hasRetirementRothContributions = true;
+  }
+
   toggleHSAContributions(){
     this.hasHSAContributions = true;
   }
@@ -125,9 +132,11 @@ export class AppComponent implements OnInit {
     if (!this.taxable_income) return;
     if (this.hasSelfEmploymentIncome && !this.self_employment_income) this.hasSelfEmploymentIncome = false;
     if (this.hasRetirementContributions && !this.traditional_retirement_contributions) this.hasRetirementContributions = false;
+    if (this.hasRetirementRothContributions && !this.roth_retirement_contributions) this.hasRetirementRothContributions = false;
     if (this.hasHSAContributions && !this.hsa_contributions) this.hasHSAContributions = false;
     if (this.hasInsurancePremiums && !this.insurance_premiums) this.hasInsurancePremiums = false;
     this.taxesCalculated = true;
+    if(this.hasRetirementContributions || this.hasRetirementRothContributions) this.total_retirement_contributions = +(this.traditional_retirement_contributions ?? 0) + + (this.roth_retirement_contributions ?? 0) ;
     this.calculateStateTaxes();
     this.calculateFica();
     if (this.tax_year == 2024) {
@@ -395,7 +404,7 @@ export class AppComponent implements OnInit {
     if (!this.gross_income) return;
     // this.estimated_total_taxes = (this.estimated_state_taxes ?? 0) + (this.estimated_social_security_taxes ?? 0) + (this.estimated_medicare_taxes ?? 0) + (this.estimated_taxes ?? 0) - (this.estimated_employer_fica_contribution ?? 0);
     this.estimated_total_taxes = (this.estimated_state_taxes ?? 0) + (this.estimated_social_security_taxes ?? 0) + (this.estimated_medicare_taxes ?? 0) + (this.estimated_taxes ?? 0);
-    this.estimated_net_income = this.gross_income - this.estimated_total_taxes - (this.hsa_contributions ?? 0) - (this.traditional_retirement_contributions ?? 0);
+    this.estimated_net_income = this.gross_income - this.estimated_total_taxes - (this.hsa_contributions ?? 0) - (this.traditional_retirement_contributions ?? 0) - (this.roth_retirement_contributions ?? 0);
   }
 
 
@@ -410,8 +419,10 @@ export class AppComponent implements OnInit {
     this.estimated_self_employed_medicare_taxes = undefined; 
     this.estimated_employer_fica_contribution = undefined; 
     this.taxesCalculated = false;
+    this.total_retirement_contributions = undefined;
     if(!this.self_employment_income) this.hasSelfEmploymentIncome = false;
     if(!this.traditional_retirement_contributions) this.hasRetirementContributions = false;
+    if(!this.roth_retirement_contributions) this.hasRetirementRothContributions = false;
     if(!this.hsa_contributions) this.hasHSAContributions = false;
     if(!this.insurance_premiums) this.hasInsurancePremiums = false;
   }
