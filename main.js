@@ -424,44 +424,78 @@ function AppComponent_div_39_div_27_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](8, 1, ctx_r52.insurance_premiums, "USD", "symbol", "1.0-0"), "");
   }
 }
+function AppComponent_div_39_div_113_h3_5_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Traditional");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+}
+function AppComponent_div_39_div_113_h3_6_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1, "Roth");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+}
+function AppComponent_div_39_div_113_h3_12_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "currency");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "percent");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r57 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+    let tmp_0_0;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](2, 2, ctx_r57.traditional_retirement_contributions, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 7, ((tmp_0_0 = ctx_r57.traditional_retirement_contributions) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0) / ((tmp_0_0 = ctx_r57.gross_income) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0), "1.2-2"), ")");
+  }
+}
+function AppComponent_div_39_div_113_h3_13_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](2, "currency");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](3, "percent");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+  }
+  if (rf & 2) {
+    const ctx_r58 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3);
+    let tmp_0_0;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](2, 2, ctx_r58.roth_retirement_contributions, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](3, 7, ((tmp_0_0 = ctx_r58.roth_retirement_contributions) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0) / ((tmp_0_0 = ctx_r58.gross_income) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0), "1.2-2"), ")");
+  }
+}
 function AppComponent_div_39_div_113_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 26)(1, "div", 27)(2, "div", 9)(3, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](4, "401k Contributions: ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](5, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](6, "Traditional");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](5, AppComponent_div_39_div_113_h3_5_Template, 2, 0, "h3", 5)(6, AppComponent_div_39_div_113_h3_6_Template, 2, 0, "h3", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](8, "Roth");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](9, "div", 9)(10, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](12, "currency");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](13, "percent");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](7, "div", 9)(8, "h3");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](10, "currency");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](11, "percent");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](14, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](15);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](16, "currency");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](17, "percent");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "h3");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](19);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](20, "currency");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](21, "percent");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](12, AppComponent_div_39_div_113_h3_12_Template, 4, 10, "h3", 5)(13, AppComponent_div_39_div_113_h3_13_Template, 4, 10, "h3", 5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
   }
   if (rf & 2) {
     const ctx_r53 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2);
-    let tmp_0_0;
-    let tmp_1_0;
     let tmp_2_0;
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](11);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](12, 6, (tmp_0_0 = ctx_r53.total_retirement_contributions) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](13, 11, ((tmp_0_0 = ctx_r53.total_retirement_contributions) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0) / ((tmp_0_0 = ctx_r53.gross_income) !== null && tmp_0_0 !== undefined ? tmp_0_0 : 0), "1.2-2"), ")");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](16, 14, ctx_r53.traditional_retirement_contributions, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](17, 19, ((tmp_1_0 = ctx_r53.traditional_retirement_contributions) !== null && tmp_1_0 !== undefined ? tmp_1_0 : 0) / ((tmp_1_0 = ctx_r53.gross_income) !== null && tmp_1_0 !== undefined ? tmp_1_0 : 0), "1.2-2"), ")");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](20, 22, ctx_r53.roth_retirement_contributions, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](21, 27, ((tmp_2_0 = ctx_r53.roth_retirement_contributions) !== null && tmp_2_0 !== undefined ? tmp_2_0 : 0) / ((tmp_2_0 = ctx_r53.gross_income) !== null && tmp_2_0 !== undefined ? tmp_2_0 : 0), "1.2-2"), ")");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](5);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r53.hasRetirementContributions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r53.hasRetirementRothContributions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](10, 6, (tmp_2_0 = ctx_r53.total_retirement_contributions) !== null && tmp_2_0 !== undefined ? tmp_2_0 : 0, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](11, 11, ((tmp_2_0 = ctx_r53.total_retirement_contributions) !== null && tmp_2_0 !== undefined ? tmp_2_0 : 0) / ((tmp_2_0 = ctx_r53.gross_income) !== null && tmp_2_0 !== undefined ? tmp_2_0 : 0), "1.2-2"), ")");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r53.hasRetirementContributions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r53.hasRetirementRothContributions);
   }
 }
 function AppComponent_div_39_div_114_Template(rf, ctx) {
@@ -484,7 +518,7 @@ function AppComponent_div_39_div_114_Template(rf, ctx) {
 }
 function AppComponent_div_39_Template(rf, ctx) {
   if (rf & 1) {
-    const _r56 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    const _r60 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 24)(1, "div", 22)(2, "h2", 25);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](3, "Taxable Income:");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
@@ -579,7 +613,7 @@ function AppComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](111, "currency");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipe"](112, "percent");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](113, AppComponent_div_39_div_113_Template, 22, 30, "div", 28)(114, AppComponent_div_39_div_114_Template, 10, 10, "div", 28);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](113, AppComponent_div_39_div_113_Template, 14, 14, "div", 28)(114, AppComponent_div_39_div_114_Template, 10, 10, "div", 28);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](115, "div", 26)(116, "div", 27)(117, "div", 9)(118, "h3");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](119, "Net Income: ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()();
@@ -590,9 +624,9 @@ function AppComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()()();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](125, "button", 30);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function AppComponent_div_39_Template_button_click_125_listener() {
-      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r56);
-      const ctx_r55 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r55.resetData());
+      _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r60);
+      const ctx_r59 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+      return _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵresetView"](ctx_r59.resetData());
     });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](126, "Reset");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]()()();
@@ -634,7 +668,7 @@ function AppComponent_div_39_Template(rf, ctx) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](9);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate2"]("-", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind4"](111, 80, ctx_r2.estimated_total_taxes, "USD", "symbol", "1.0-0"), " (", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpipeBind2"](112, 85, ((tmp_13_0 = ctx_r2.estimated_total_taxes) !== null && tmp_13_0 !== undefined ? tmp_13_0 : 0) / ((tmp_13_0 = ctx_r2.gross_income) !== null && tmp_13_0 !== undefined ? tmp_13_0 : 0), "1.2-2"), ")");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r2.hasRetirementContributions);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r2.hasRetirementContributions || ctx_r2.hasRetirementRothContributions);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx_r2.hasHSAContributions);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](8);
