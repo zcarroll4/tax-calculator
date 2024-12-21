@@ -38,9 +38,35 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.filing_state = 'WV';
-    this.tax_year = 2024;
+    this.filing_state = sessionStorage.getItem('filing_state') || 'WV'; // default to 'WV' if not found
+    this.filing_status = sessionStorage.getItem('filing_status') || '';
+    this.tax_year = +(sessionStorage.getItem('tax_year')??0) || 2024; // default to 2024 if not found
+    this.gross_income = +(sessionStorage.getItem('gross_income')??0) || 0;
+    this.self_employment_income = +(sessionStorage.getItem('self_employment_income')??0) || 0;
+    this.traditional_retirement_contributions = +(sessionStorage.getItem('traditional_retirement_contributions')??0) || 0;
+    this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions')??0) || 0;
+    this.hsa_contributions = +(sessionStorage.getItem('hsa_contributions')??0) || 0;
+    this.insurance_premiums = +(sessionStorage.getItem('insurance_premiums')??0) || 0;
   }
+
+  saveToSessionStorage() {
+    // Save all relevant data to sessionStorage
+    sessionStorage.setItem('filing_state', this.filing_state || '');
+    sessionStorage.setItem('filing_status', this.filing_status || '');
+    sessionStorage.setItem('tax_year', this.tax_year?.toString() || '');
+    sessionStorage.setItem('gross_income', this.gross_income?.toString() || '');
+    sessionStorage.setItem('self_employment_income', this.self_employment_income?.toString() || '');
+    sessionStorage.setItem('traditional_retirement_contributions', this.traditional_retirement_contributions?.toString() || '');
+    sessionStorage.setItem('roth_retirement_contributions', this.roth_retirement_contributions?.toString() || '');
+    sessionStorage.setItem('hsa_contributions', this.hsa_contributions?.toString() || '');
+    sessionStorage.setItem('insurance_premiums', this.insurance_premiums?.toString() || '');
+  }
+
+  clearSessionStorage() {
+    // Clear all sessionStorage data
+    sessionStorage.clear();
+  }
+
 
   updateStandardDeduction() {
     if (this.tax_year == 2024) {

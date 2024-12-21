@@ -13,7 +13,7 @@
               <h3>Tax Year</h3>
             </div>
             <div class="col">
-              <select class="form-select w-75 m-auto text-center" [disabled]="taxesCalculated" [(ngModel)]="tax_year">
+              <select class="form-select w-75 m-auto text-center" [disabled]="taxesCalculated" [(ngModel)]="tax_year" (ngModelChange)="saveToSessionStorage()">
                 <option sel>2024</option>
                 <option>2023</option>
                 <option>2022</option>
@@ -26,7 +26,7 @@
             </div>
             <div class="col">
               <select class="form-select w-75 m-auto text-center" [disabled]="taxesCalculated"
-                [(ngModel)]="filing_status">
+                [(ngModel)]="filing_status" (ngModelChange)="saveToSessionStorage()">
                 <option>Single</option>
                 <option>Married Filing Jointly</option>
                 <option>Married Filing Separately</option>
@@ -38,7 +38,7 @@
               <h3>Gross Income</h3>
             </div>
             <div class="col"><input type="tel" [disabled]="taxesCalculated" step="1000"
-                class="text-center w-75 m-auto form-control" [(ngModel)]="gross_income" />
+                class="text-center w-75 m-auto form-control" [(ngModel)]="gross_income" (ngModelChange)="saveToSessionStorage()"/>
             </div>
           </div>
           <div class="row my-1">
@@ -46,7 +46,7 @@
               <h3>State</h3>
             </div>
             <div class="col">
-              <select class="form-select w-75 m-auto text-center" [disabled]="true" [(ngModel)]="filing_state">
+              <select class="form-select w-75 m-auto text-center" [disabled]="true" [(ngModel)]="filing_state" (ngModelChange)="saveToSessionStorage()">
                 <option>WV</option>
               </select>
             </div>
@@ -59,7 +59,7 @@
               <button *ngIf="!hasSelfEmploymentIncome" [disabled]="taxesCalculated" class="btn btn-success w-50"
                 (click)="toggleSelfEmploymentIncome()">Add</button>
               <input *ngIf="hasSelfEmploymentIncome" type="tel" [disabled]="taxesCalculated" step="1000"
-                class="text-center w-75 m-auto form-control" [(ngModel)]="self_employment_income" />
+                class="text-center w-75 m-auto form-control" [(ngModel)]="self_employment_income" (ngModelChange)="saveToSessionStorage()"/>
             </div>
           </div>
           <div class="row my-1">
@@ -70,7 +70,7 @@
               <button *ngIf="!hasRetirementContributions" [disabled]="taxesCalculated" class="btn btn-success w-50"
                 (click)="toggleRetirementContributions()">Add</button>
               <input *ngIf="hasRetirementContributions" type="tel" [disabled]="taxesCalculated" step="1000"
-                class="text-center w-75 m-auto form-control" [(ngModel)]="traditional_retirement_contributions" />
+                class="text-center w-75 m-auto form-control" [(ngModel)]="traditional_retirement_contributions" (ngModelChange)="saveToSessionStorage()" />
             </div>
           </div>
           <div class="row my-1">
@@ -81,7 +81,7 @@
               <button *ngIf="!hasRetirementRothContributions" [disabled]="taxesCalculated" class="btn btn-success w-50"
                 (click)="toggleRetirementRothContributions()">Add</button>
               <input *ngIf="hasRetirementRothContributions" type="tel" [disabled]="taxesCalculated" step="1000"
-                class="text-center w-75 m-auto form-control" [(ngModel)]="roth_retirement_contributions" />
+                class="text-center w-75 m-auto form-control" [(ngModel)]="roth_retirement_contributions" (ngModelChange)="saveToSessionStorage()"/>
             </div>
           </div>
           <div class="row my-1">
@@ -92,7 +92,7 @@
               <button *ngIf="!hasHSAContributions" [disabled]="taxesCalculated" class="btn btn-success w-50"
                 (click)="toggleHSAContributions()">Add</button>
               <input *ngIf="hasHSAContributions" type="tel" [disabled]="taxesCalculated" step="1000"
-                class="text-center w-75 m-auto form-control" [(ngModel)]="hsa_contributions" />
+                class="text-center w-75 m-auto form-control" [(ngModel)]="hsa_contributions" (ngModelChange)="saveToSessionStorage()"/>
             </div>
           </div>
           <div class="row my-1">
@@ -104,7 +104,7 @@
               <button *ngIf="!hasInsurancePremiums" [disabled]="taxesCalculated" class="btn btn-success w-50"
                 (click)="toggleInsurancePremiums()">Add</button>
               <input *ngIf="hasInsurancePremiums" type="tel" [disabled]="taxesCalculated" step="1000"
-                class="text-center w-75 m-auto form-control" [(ngModel)]="insurance_premiums" />
+                class="text-center w-75 m-auto form-control" [(ngModel)]="insurance_premiums" (ngModelChange)="saveToSessionStorage()"/>
             </div>
           </div>
         </div>
