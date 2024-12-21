@@ -297,17 +297,17 @@
                 </div>
               </div>
             </div>
-            <div class="w-100" *ngIf="hasRetirementContributions">
+            <div class="w-100" *ngIf="hasRetirementContributions || hasRetirementRothContributions">
               <div class="row py-3">
                 <div class="col">
                   <h3>401k Contributions: </h3>
-                  <h3>Traditional</h3>
-                  <h3>Roth</h3>
+                  <h3 *ngIf="hasRetirementContributions">Traditional</h3>
+                  <h3 *ngIf="hasRetirementRothContributions">Roth</h3>
                 </div>
                 <div class="col">
                   <h3>-{{ (total_retirement_contributions??0) | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(total_retirement_contributions??0) /( gross_income??0) | percent  : '1.2-2'}})</h3>
-                  <h3>-{{ traditional_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(traditional_retirement_contributions??0) /( gross_income??0) | percent  : '1.2-2'}})</h3>
-                  <h3>-{{ roth_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(roth_retirement_contributions??0) /( gross_income??0) | percent  : '1.2-2'}})</h3>
+                  <h3 *ngIf="hasRetirementContributions">-{{ traditional_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(traditional_retirement_contributions??0) /( gross_income??0) | percent  : '1.2-2'}})</h3>
+                  <h3 *ngIf="hasRetirementRothContributions">-{{ roth_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(roth_retirement_contributions??0) /( gross_income??0) | percent  : '1.2-2'}})</h3>
                 </div>
               </div>
             </div>
