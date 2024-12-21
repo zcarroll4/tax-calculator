@@ -694,6 +694,12 @@ class AppComponent {
     this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions') ?? 0) || undefined;
     this.hsa_contributions = +(sessionStorage.getItem('hsa_contributions') ?? 0) || undefined;
     this.insurance_premiums = +(sessionStorage.getItem('insurance_premiums') ?? 0) || undefined;
+    //has checks
+    if (this.self_employment_income) this.hasSelfEmploymentIncome = true;
+    if (this.traditional_retirement_contributions) this.hasRetirementContributions = true;
+    if (this.roth_retirement_contributions) this.hasRetirementRothContributions = true;
+    if (this.hsa_contributions) this.hasHSAContributions = true;
+    if (this.insurance_premiums) this.hasInsurancePremiums = true;
   }
   saveToSessionStorage() {
     // Save all relevant data to sessionStorage
