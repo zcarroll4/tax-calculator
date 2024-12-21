@@ -42,11 +42,11 @@ export class AppComponent implements OnInit {
     this.filing_status = sessionStorage.getItem('filing_status') || '';
     this.tax_year = +(sessionStorage.getItem('tax_year')??0) || 2024; // default to 2024 if not found
     this.gross_income = +(sessionStorage.getItem('gross_income')??0) || undefined;
-    this.self_employment_income = +(sessionStorage.getItem('self_employment_income')??0) || 0;
-    this.traditional_retirement_contributions = +(sessionStorage.getItem('traditional_retirement_contributions')??0) || 0;
-    this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions')??0) || 0;
-    this.hsa_contributions = +(sessionStorage.getItem('hsa_contributions')??0) || 0;
-    this.insurance_premiums = +(sessionStorage.getItem('insurance_premiums')??0) || 0;
+    this.self_employment_income = +(sessionStorage.getItem('self_employment_income')??0) || undefined;
+    this.traditional_retirement_contributions = +(sessionStorage.getItem('traditional_retirement_contributions')??0) || undefined;
+    this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions')??0) || undefined;
+    this.hsa_contributions = +(sessionStorage.getItem('hsa_contributions')??0) || undefined;
+    this.insurance_premiums = +(sessionStorage.getItem('insurance_premiums')??0) || undefined;
   }
 
   saveToSessionStorage() {
