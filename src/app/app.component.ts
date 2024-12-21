@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
     this.filing_state = sessionStorage.getItem('filing_state') || 'WV'; // default to 'WV' if not found
     this.filing_status = sessionStorage.getItem('filing_status') || '';
     this.tax_year = +(sessionStorage.getItem('tax_year')??0) || 2024; // default to 2024 if not found
-    this.gross_income = +(sessionStorage.getItem('gross_income')??0) || 0;
+    this.gross_income = +(sessionStorage.getItem('gross_income')??0) || undefined;
     this.self_employment_income = +(sessionStorage.getItem('self_employment_income')??0) || 0;
     this.traditional_retirement_contributions = +(sessionStorage.getItem('traditional_retirement_contributions')??0) || 0;
     this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions')??0) || 0;
