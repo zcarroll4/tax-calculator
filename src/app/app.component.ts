@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -35,18 +36,12 @@ export class AppComponent implements OnInit {
   estimated_total_taxes: number | undefined;
   estimated_net_income: number | undefined;
 
-  constructor() { }
+  constructor(private cookieService: CookieService) { }
+
 
   ngOnInit(): void {
-    this.filing_state = sessionStorage.getItem('filing_state') || 'WV'; // default to 'WV' if not found
-    this.filing_status = sessionStorage.getItem('filing_status') || '';
-    this.tax_year = +(sessionStorage.getItem('tax_year')??0) || 2024; // default to 2024 if not found
-    this.gross_income = +(sessionStorage.getItem('gross_income')??0) || undefined;
-    this.self_employment_income = +(sessionStorage.getItem('self_employment_income')??0) || undefined;
-    this.traditional_retirement_contributions = +(sessionStorage.getItem('traditional_retirement_contributions')??0) || undefined;
-    this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions')??0) || undefined;
-    this.hsa_contributions = +(sessionStorage.getItem('hsa_contributions')??0) || undefined;
-    this.insurance_premiums = +(sessionStorage.getItem('insurance_premiums')??0) || undefined;
+    this.loadFromCookies();
+    // this.loadFromSession();
 
     //has checks
     if(this.self_employment_income) this.hasSelfEmploymentIncome = true;
@@ -55,6 +50,60 @@ export class AppComponent implements OnInit {
     if(this.hsa_contributions) this.hasHSAContributions = true;
     if(this.insurance_premiums) this.hasInsurancePremiums = true;
   }
+
+    // Save data to cookies instead of sessionStorage
+    saveToCookie() {
+      this.cookieService.set('tax_year', this.tax_year?.toString() || '2024',30); //cookie expires in 30 days
+      if(this.filing_status){
+        this.cookieService.set('filing_status', this.filing_status,30);
+      }
+      if (this.gross_income) {
+        this.cookieService.set('gross_income', this.gross_income.toString(),30);
+      }
+      if (this.filing_state) {
+        this.cookieService.set('filing_state', this.filing_state || 'WV',30);
+      }
+      if (this.self_employment_income) {
+        this.cookieService.set('self_employment_income', this.self_employment_income?.toString(),30);
+      }
+      if (this.traditional_retirement_contributions) {
+        this.cookieService.set('traditional_retirement_contributions', this.traditional_retirement_contributions?.toString(),30);
+      }
+      if (this.roth_retirement_contributions) {
+        this.cookieService.set('roth_retirement_contributions', this.roth_retirement_contributions.toString(),30);
+      }
+      if (this.hsa_contributions) {
+        this.cookieService.set('hsa_contributions', this.hsa_contributions.toString(),30);
+      }
+      if (this.insurance_premiums) {
+        this.cookieService.set('insurance_premiums', this.insurance_premiums.toString(),30);
+      }
+    }
+
+  // Load data from cookies
+    loadFromCookies() {
+      this.tax_year = +this.cookieService.get('tax_year') || 2024;
+      this.filing_status = this.cookieService.get('filing_status') || undefined;
+      this.gross_income = +this.cookieService.get('gross_income') || undefined;
+      this.filing_state = this.cookieService.get('filing_state') || 'WV';
+      this.self_employment_income = +this.cookieService.get('self_employment_income') || undefined;
+      this.traditional_retirement_contributions = +this.cookieService.get('traditional_retirement_contributions') || undefined;
+      this.roth_retirement_contributions = +this.cookieService.get('roth_retirement_contributions') || undefined;
+      this.hsa_contributions = +this.cookieService.get('hsa_contributions') || undefined;
+      this.insurance_premiums = +this.cookieService.get('insurance_premiums') || undefined;
+    }
+
+    loadFromSession(){
+      this.filing_state = sessionStorage.getItem('filing_state') || 'WV'; // default to 'WV' if not found
+      this.filing_status = sessionStorage.getItem('filing_status') || '';
+      this.tax_year = +(sessionStorage.getItem('tax_year')??0) || 2024; // default to 2024 if not found
+      this.gross_income = +(sessionStorage.getItem('gross_income')??0) || undefined;
+      this.self_employment_income = +(sessionStorage.getItem('self_employment_income')??0) || undefined;
+      this.traditional_retirement_contributions = +(sessionStorage.getItem('traditional_retirement_contributions')??0) || undefined;
+      this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions')??0) || undefined;
+      this.hsa_contributions = +(sessionStorage.getItem('hsa_contributions')??0) || undefined;
+      this.insurance_premiums = +(sessionStorage.getItem('insurance_premiums')??0) || undefined;
+    }
 
   saveToSessionStorage() {
     // Save all relevant data to sessionStorage
@@ -172,6 +221,8 @@ export class AppComponent implements OnInit {
     if(this.hasRetirementContributions || this.hasRetirementRothContributions) this.total_retirement_contributions = +(this.traditional_retirement_contributions ?? 0) + + (this.roth_retirement_contributions ?? 0) ;
     this.calculateStateTaxes();
     this.calculateFica();
+
+    this.saveToCookie();
     if (this.tax_year == 2024) {
       if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
         if (this.taxable_income > 11600) {
@@ -458,6 +509,9 @@ export class AppComponent implements OnInit {
     if(!this.roth_retirement_contributions) this.hasRetirementRothContributions = false;
     if(!this.hsa_contributions) this.hasHSAContributions = false;
     if(!this.insurance_premiums) this.hasInsurancePremiums = false;
+
+    // Remove cookies on reset
+    // this.cookieService.deleteAll();
   }
 
 }
