@@ -125,6 +125,19 @@ export class AppComponent implements OnInit {
 
 
   updateStandardDeduction() {
+    if (this.tax_year == 2025) {
+      switch (this.filing_status) {
+        case 'Single':
+          this.standard_deduction = 15000;
+          break;
+        case 'Married Filing Separately':
+          this.standard_deduction = 15000;
+          break;
+        case 'Married Filing Jointly':
+          this.standard_deduction = 30000;
+          break;
+      }
+    }
     if (this.tax_year == 2024) {
       switch (this.filing_status) {
         case 'Single':
@@ -223,6 +236,97 @@ export class AppComponent implements OnInit {
     this.calculateFica();
 
     this.saveToCookie();
+    if (this.tax_year == 2025) {
+      if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
+        if (this.taxable_income > 11925) {
+          this.estimated_taxes = 1192.5;
+          if (this.taxable_income > 48475) {
+            this.estimated_taxes += 4386;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 11925) * .12);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 103350) {
+            this.estimated_taxes += 12072.5;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 48475) * .22);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 197300) {
+            this.estimated_taxes += 22548;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 103350) * .24);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 250525) {
+            this.estimated_taxes += 18628.75;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 197300) * .35);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 626350) {
+            this.estimated_taxes += 139055.25;
+            this.estimated_taxes += Math.round((this.taxable_income-626350)*.37);
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 250525) * .37);
+            this.calculateTotalTaxes();
+            return;
+          }
+        } else {
+          this.estimated_taxes = Math.round(this.taxable_income * .10);
+          this.calculateTotalTaxes();
+          return;
+        }
+      } else if (this.filing_status == 'Married Filing Jointly') {
+        if (this.taxable_income > 23850) {
+          this.estimated_taxes = 2385;
+          if (this.taxable_income > 96950) {
+            this.estimated_taxes += 8772;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 23850) * .12);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 206700) {
+            this.estimated_taxes += 24145;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 96950) * .22);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 394600) {
+            this.estimated_taxes += 45096;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 206700) * .24);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 501050) {
+            this.estimated_taxes += 37257.5;
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 394600) * .35);
+            this.calculateTotalTaxes();
+            return;
+          }
+          if (this.taxable_income > 751600) {
+            this.estimated_taxes += 92703.5;
+            this.estimated_taxes += Math.round((this.taxable_income-751600)*.37);
+          } else {
+            this.estimated_taxes += Math.round((this.taxable_income - 501050) * .37);
+            this.calculateTotalTaxes();
+            return;
+          }
+        } else {
+          this.estimated_taxes = Math.round(this.taxable_income * .10);
+          this.calculateTotalTaxes();
+          return;
+        }
+      }
+    }
     if (this.tax_year == 2024) {
       if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
         if (this.taxable_income > 11600) {
