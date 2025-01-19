@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
+import version from '../../package.json';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+
 export class AppComponent implements OnInit {
+  version: string = version.version;
+
   filing_state: string | undefined;
   filing_status: string | undefined;
   tax_year: | number | undefined;
@@ -35,11 +40,12 @@ export class AppComponent implements OnInit {
   estimated_employer_fica_contribution: number | undefined;
   estimated_total_taxes: number | undefined;
   estimated_net_income: number | undefined;
-
+  
   constructor(private cookieService: CookieService) { }
 
 
   ngOnInit(): void {
+    console.info("Release: " + version.version)
     this.loadFromCookies();
     // this.loadFromSession();
 
