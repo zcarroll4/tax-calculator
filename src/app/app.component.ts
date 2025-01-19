@@ -514,6 +514,33 @@ export class AppComponent implements OnInit {
 
   calculateStateTaxes() {
     if (!this.state_taxable_income) return;
+    if (this.tax_year == 2025) {
+      if (this.state_taxable_income > 10000) {
+        this.estimated_state_taxes = 222;
+        if (this.state_taxable_income > 25000) {
+          this.estimated_state_taxes += 444;
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 10000) * .0296);
+          return;
+        }
+        if (this.state_taxable_income > 40000) {
+          this.estimated_state_taxes += 499.5;
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 25000) * .0333);
+          return;
+        }
+        if (this.state_taxable_income > 60000) {
+          this.estimated_state_taxes += 888;
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 60000) * .0482);
+        } else {
+          this.estimated_state_taxes += Math.round((this.state_taxable_income - 60000) * .0444);
+          return;
+        }
+      } else {
+        this.estimated_state_taxes = Math.round(this.state_taxable_income * .0222);
+        return;
+      }
+    }
     if (this.tax_year == 2024) {
       if (this.state_taxable_income > 10000) {
         this.estimated_state_taxes = 236;
