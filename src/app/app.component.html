@@ -65,7 +65,7 @@
           </div>
           <div class="row my-1">
             <div class="col-7">
-              <h3>401K (Traditional)</h3>
+              <h3>Retirement (Traditional)</h3>
             </div>
             <div class="col">
               <button *ngIf="!hasRetirementContributions" [disabled]="taxesCalculated" class="btn btn-success w-50"
@@ -76,7 +76,7 @@
           </div>
           <div class="row my-1">
             <div class="col-7">
-              <h3>401K (Roth)</h3>
+              <h3>Retirement (Roth)</h3>
             </div>
             <div class="col">
               <button *ngIf="!hasRetirementRothContributions" [disabled]="taxesCalculated" class="btn btn-success w-50"
@@ -186,7 +186,7 @@
             <div class="w-100" *ngIf="hasRetirementContributions">
               <div class="row py-3">
                 <div class="col">
-                  <h3>Trad. 401k Deduction: </h3>
+                  <h3>Trad. Retirement Deduction: </h3>
                 </div>
                 <div class="col">
                   <h3>-{{ traditional_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
@@ -284,7 +284,7 @@
                   <h3>Total Income: </h3>
                 </div>
                 <div class="col">
-                  <h3>{{ ((gross_income??0)+(self_employment_income??0)) | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                  <h3>{{ ((gross_income??0)+(self_employment_income??0)) | currency : 'USD' : 'symbol' : '2.0-0'}}</h3>
                 </div>
               </div>
             </div>
@@ -301,7 +301,7 @@
             <div class="w-100" *ngIf="hasRetirementContributions || hasRetirementRothContributions">
               <div class="row py-3">
                 <div class="col">
-                  <h3>401k Contributions: </h3>
+                  <h3>Retirement: </h3>
                   <h3 *ngIf="hasRetirementContributions">Traditional</h3>
                   <h3 *ngIf="hasRetirementRothContributions">Roth</h3>
                 </div>
