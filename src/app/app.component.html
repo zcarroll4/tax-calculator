@@ -108,6 +108,30 @@
                 class="text-center w-75 m-auto form-control" [(ngModel)]="insurance_premiums" (ngModelChange)="saveToSessionStorage()"/>
             </div>
           </div>
+          <div class="row my-1">
+            <div class="col-7">
+              <!-- Capital Gains (Long) -->
+              <h3>Capital Gains (Long)</h3>
+            </div>
+            <div class="col">
+              <button *ngIf="!hasCapitalGainsLong" [disabled]="taxesCalculated" class="btn btn-success w-50"
+                (click)="toggleCapitalGainsLong()">Add</button>
+              <input *ngIf="hasCapitalGainsLong" type="tel" [disabled]="taxesCalculated" step="1000"
+                class="text-center w-75 m-auto form-control" [(ngModel)]="capital_gains_long" (ngModelChange)="saveToSessionStorage()"/>
+            </div>
+          </div>
+          <div class="row my-1">
+            <div class="col-7">
+              <!-- Capital Gains (Short) -->
+              <h3>Capital Gains (Short)</h3>
+            </div>
+            <div class="col">
+              <button *ngIf="!hasCapitalGainsShort" [disabled]="taxesCalculated" class="btn btn-success w-50"
+                (click)="toggleCapitalGainsShort()">Add</button>
+              <input *ngIf="hasCapitalGainsShort" type="tel" [disabled]="taxesCalculated" step="1000"
+                class="text-center w-75 m-auto form-control" [(ngModel)]="capital_gains_short" (ngModelChange)="saveToSessionStorage()"/>
+            </div>
+          </div>
         </div>
         <div class="d-none">
           <div class="row my-2">
@@ -213,6 +237,26 @@
                 </div>
               </div>
             </div>
+            <div class="w-100" *ngIf="hasInsurancePremiums">
+              <div class="row py-3">
+                <div class="col">
+                  <h3>Capital Gains (Long): </h3>
+                </div>
+                <div class="col">
+                  <h3>-{{ capital_gains_long | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="w-100" *ngIf="hasInsurancePremiums">
+              <div class="row py-3">
+                <div class="col">
+                  <h3>Capital Gains (Short): </h3>
+                </div>
+                <div class="col">
+                  <h3>-{{ capital_gains_short | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                </div>
+              </div>
+            </div>
             <h2 class="text-start text-decoration-underline">Taxable Income:</h2>
             <div class="w-100">
               <div class="row py-3">
@@ -284,7 +328,7 @@
                   <h3>Total Income: </h3>
                 </div>
                 <div class="col">
-                  <h3>{{ ((gross_income??0)+(self_employment_income??0)) | currency : 'USD' : 'symbol' : '2.0-0'}}</h3>
+                  <h3>{{ ((gross_income??0)+(self_employment_income??0)) | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
                 </div>
               </div>
             </div>

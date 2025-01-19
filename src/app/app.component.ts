@@ -27,12 +27,16 @@ export class AppComponent implements OnInit {
   total_retirement_contributions: number | undefined;
   hsa_contributions: number | undefined;
   insurance_premiums: number | undefined;
+  capital_gains_long: number | undefined;
+  capital_gains_short: number | undefined;
   taxesCalculated: boolean = false;
   hasSelfEmploymentIncome: boolean = false;
   hasRetirementContributions: boolean = false;
   hasRetirementRothContributions: boolean = false;
   hasHSAContributions: boolean = false;
   hasInsurancePremiums: boolean = false;
+  hasCapitalGainsLong: boolean = false;
+  hasCapitalGainsShort: boolean = false;
   estimated_social_security_taxes: number | undefined;
   estimated_medicare_taxes: number | undefined;
   estimated_self_employed_social_security_taxes: number | undefined;
@@ -55,6 +59,8 @@ export class AppComponent implements OnInit {
     if(this.roth_retirement_contributions) this.hasRetirementRothContributions = true;
     if(this.hsa_contributions) this.hasHSAContributions = true;
     if(this.insurance_premiums) this.hasInsurancePremiums = true;
+    if(this.capital_gains_long) this.hasCapitalGainsLong = true;
+    if(this.capital_gains_short) this.hasCapitalGainsShort = true;
   }
 
     // Save data to cookies instead of sessionStorage
@@ -84,6 +90,12 @@ export class AppComponent implements OnInit {
       if (this.insurance_premiums) {
         this.cookieService.set('insurance_premiums', this.insurance_premiums.toString(),30);
       }
+      if (this.capital_gains_long) {
+        this.cookieService.set('capital_gains_long', this.capital_gains_long.toString(),30);
+      }
+      if (this.capital_gains_short) {
+        this.cookieService.set('capital_gains_short', this.capital_gains_short.toString(),30);
+      }
     }
 
   // Load data from cookies
@@ -97,6 +109,8 @@ export class AppComponent implements OnInit {
       this.roth_retirement_contributions = +this.cookieService.get('roth_retirement_contributions') || undefined;
       this.hsa_contributions = +this.cookieService.get('hsa_contributions') || undefined;
       this.insurance_premiums = +this.cookieService.get('insurance_premiums') || undefined;
+      this.capital_gains_long = +this.cookieService.get('capital_gains_long') || undefined;
+      this.capital_gains_short = +this.cookieService.get('capital_gains_short') || undefined;
     }
 
     loadFromSession(){
@@ -109,6 +123,8 @@ export class AppComponent implements OnInit {
       this.roth_retirement_contributions = +(sessionStorage.getItem('roth_retirement_contributions')??0) || undefined;
       this.hsa_contributions = +(sessionStorage.getItem('hsa_contributions')??0) || undefined;
       this.insurance_premiums = +(sessionStorage.getItem('insurance_premiums')??0) || undefined;
+      this.capital_gains_long = +(sessionStorage.getItem('capital_gains_long')??0) || undefined;
+      this.capital_gains_short = +(sessionStorage.getItem('capital_gains_short')??0) || undefined;
     }
 
   saveToSessionStorage() {
@@ -122,6 +138,8 @@ export class AppComponent implements OnInit {
     sessionStorage.setItem('roth_retirement_contributions', this.roth_retirement_contributions?.toString() || '');
     sessionStorage.setItem('hsa_contributions', this.hsa_contributions?.toString() || '');
     sessionStorage.setItem('insurance_premiums', this.insurance_premiums?.toString() || '');
+    sessionStorage.setItem('capital_gains_long', this.capital_gains_long?.toString() || '');
+    sessionStorage.setItem('capital_gains_short', this.capital_gains_short?.toString() || '');
   }
 
   clearSessionStorage() {
@@ -189,11 +207,11 @@ export class AppComponent implements OnInit {
     if (!this.gross_income) return;
     if (!this.standard_deduction) return;
     if (!this.self_employment_income) {
-      this.taxable_income = this.gross_income - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
-      this.state_taxable_income = this.gross_income - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.taxable_income = this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - this.standard_deduction - (this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.state_taxable_income = this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
     } else {
-      this.taxable_income = +this.gross_income + +this.self_employment_income - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
-      this.state_taxable_income = +this.gross_income + +this.self_employment_income - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.taxable_income = +this.gross_income + +this.self_employment_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.state_taxable_income = +this.gross_income + +this.self_employment_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
     }
   }
 
@@ -217,6 +235,14 @@ export class AppComponent implements OnInit {
     this.hasInsurancePremiums = true;
   }
 
+  toggleCapitalGainsLong(){
+    this.hasCapitalGainsLong = true;
+  }
+
+  toggleCapitalGainsShort(){
+    this.hasCapitalGainsShort = true;
+  }
+
   calculateTaxes() {
     //debug
     this.updateStandardDeduction();
@@ -236,6 +262,8 @@ export class AppComponent implements OnInit {
     if (this.hasRetirementRothContributions && !this.roth_retirement_contributions) this.hasRetirementRothContributions = false;
     if (this.hasHSAContributions && !this.hsa_contributions) this.hasHSAContributions = false;
     if (this.hasInsurancePremiums && !this.insurance_premiums) this.hasInsurancePremiums = false;
+    if (this.hasCapitalGainsLong && !this.capital_gains_long) this.hasCapitalGainsLong = false;
+    if (this.hasCapitalGainsShort && !this.capital_gains_short) this.hasCapitalGainsShort = false;
     this.taxesCalculated = true;
     if(this.hasRetirementContributions || this.hasRetirementRothContributions) this.total_retirement_contributions = +(this.traditional_retirement_contributions ?? 0) + + (this.roth_retirement_contributions ?? 0) ;
     this.calculateStateTaxes();
@@ -646,6 +674,8 @@ export class AppComponent implements OnInit {
     if(!this.roth_retirement_contributions) this.hasRetirementRothContributions = false;
     if(!this.hsa_contributions) this.hasHSAContributions = false;
     if(!this.insurance_premiums) this.hasInsurancePremiums = false;
+    if(!this.capital_gains_long) this.hasCapitalGainsLong = false;
+    if(!this.capital_gains_short) this.hasCapitalGainsShort = false;
 
     // Remove cookies on reset
     // this.cookieService.deleteAll();
