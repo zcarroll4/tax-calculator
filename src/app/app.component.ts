@@ -219,8 +219,8 @@ export class AppComponent implements OnInit {
     if (!this.gross_income) return;
     if (!this.standard_deduction) return;
     if (!this.self_employment_income) {
-      this.taxable_income = this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - this.standard_deduction - (this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
-      this.state_taxable_income = this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.taxable_income = +this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - this.standard_deduction - (this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
+      this.state_taxable_income = +this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
     } else {
       this.taxable_income = +this.gross_income + +this.self_employment_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
       this.state_taxable_income = +this.gross_income + +this.self_employment_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
@@ -664,8 +664,8 @@ export class AppComponent implements OnInit {
   calculateTotalTaxes() {
     if (!this.gross_income) return;
     // this.estimated_total_taxes = (this.estimated_state_taxes ?? 0) + (this.estimated_social_security_taxes ?? 0) + (this.estimated_medicare_taxes ?? 0) + (this.estimated_taxes ?? 0) - (this.estimated_employer_fica_contribution ?? 0);
-    this.estimated_total_taxes = (this.estimated_state_taxes ?? 0) + (this.estimated_social_security_taxes ?? 0) + (this.estimated_medicare_taxes ?? 0) + (this.estimated_taxes ?? 0);
-    this.estimated_net_income = this.gross_income + (this.self_employment_income ?? 0) - this.estimated_total_taxes - (this.hsa_contributions ?? 0) - (this.traditional_retirement_contributions ?? 0) - (this.roth_retirement_contributions ?? 0);
+    this.estimated_total_taxes = +(this.estimated_state_taxes ?? 0) + +(this.estimated_social_security_taxes ?? 0) + +(this.estimated_medicare_taxes ?? 0) + +(this.estimated_taxes ?? 0);
+    this.estimated_net_income = +(this.gross_income) + +(this.self_employment_income ?? 0) - this.estimated_total_taxes - (this.hsa_contributions ?? 0) - (this.traditional_retirement_contributions ?? 0) - (this.roth_retirement_contributions ?? 0);
   }
 
 

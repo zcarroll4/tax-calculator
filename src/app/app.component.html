@@ -297,7 +297,7 @@
                   <h3>Social Security Taxes: </h3>
                 </div>
                 <div class="col">
-                  <h3>{{ estimated_social_security_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_social_security_taxes??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3>{{ estimated_social_security_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_social_security_taxes??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
                 </div>
               </div>
             </div>
@@ -307,7 +307,7 @@
                   <h3>Medicare Taxes: </h3>
                 </div>
                 <div class="col">
-                  <h3>{{ estimated_medicare_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_medicare_taxes??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3>{{ estimated_medicare_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_medicare_taxes??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
                 </div>
               </div>
             </div>
@@ -329,7 +329,7 @@
                   <h3>Total Income: </h3>
                 </div>
                 <div class="col">
-                  <h3>{{ ((gross_income??0)+(self_employment_income??0)) | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                  <h3>{{ ((gross_income??0)+ +(self_employment_income??0)) | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
                 </div>
               </div>
             </div>
@@ -339,7 +339,7 @@
                   <h3>Total Taxes: </h3>
                 </div>
                 <div class="col">
-                  <h3>-{{ estimated_total_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_total_taxes??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3>-{{ estimated_total_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_total_taxes??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
                 </div>
               </div>
             </div>
@@ -351,9 +351,9 @@
                   <h3 *ngIf="hasRetirementRothContributions">Roth</h3>
                 </div>
                 <div class="col">
-                  <h3>-{{ (total_retirement_contributions??0) | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(total_retirement_contributions??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
-                  <h3 *ngIf="hasRetirementContributions">-{{ traditional_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(traditional_retirement_contributions??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
-                  <h3 *ngIf="hasRetirementRothContributions">-{{ roth_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(roth_retirement_contributions??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3>-{{ (total_retirement_contributions??0) | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(total_retirement_contributions??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3 *ngIf="hasRetirementContributions">-{{ traditional_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(traditional_retirement_contributions??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3 *ngIf="hasRetirementRothContributions">-{{ roth_retirement_contributions | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(roth_retirement_contributions??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
                 </div>
               </div>
             </div>
@@ -363,7 +363,7 @@
                   <h3>HSA Contributions: </h3>
                 </div>
                 <div class="col">
-                  <h3>-{{ hsa_contributions | currency : 'USD' : 'symbol' : '1.0-0'}}  ({{(hsa_contributions??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3>-{{ hsa_contributions | currency : 'USD' : 'symbol' : '1.0-0'}}  ({{(hsa_contributions??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
                 </div>
               </div>
             </div>
@@ -373,7 +373,7 @@
                   <h3>Net Income: </h3>
                 </div>
                 <div class="col">
-                  <h3>{{ estimated_net_income | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_net_income??0) /((gross_income??0)+(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
+                  <h3>{{ estimated_net_income | currency : 'USD' : 'symbol' : '1.0-0'}} ({{(estimated_net_income??0) /((gross_income??0)+ +(self_employment_income??0)) | percent  : '1.2-2'}})</h3>
                 </div>
               </div>
             </div>
