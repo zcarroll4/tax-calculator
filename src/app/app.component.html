@@ -159,6 +159,22 @@
               <label class="form-control bg-secondary text-white">2000</label>
             </div>
           </div>
+          <div *ngIf="(capital_gains_long ?? 0) < 0 " class="row my-2">
+            <div class="col-8">
+              <h3>Capital Losses Deduction (Long)</h3>
+            </div>
+            <div class="col">
+              <label class="form-control bg-secondary text-white">{{capital_gains_long}}</label>
+            </div>
+          </div>
+          <div *ngIf="capital_gains_short && capital_gains_short < 0" class="row my-2">
+            <div class="col-8">
+              <h3>Capital Losses Deduction (Short)</h3>
+            </div>
+            <div class="col">
+              <label class="form-control bg-secondary text-white">{{capital_gains_short}}</label>
+            </div>
+          </div>
           <div class="row my-2">
             <div class="col-8">
               <h3>State Taxable Income</h3>
@@ -197,6 +213,26 @@
                 </div>
               </div>
             </div>
+            <div class="w-100" *ngIf="(capital_gains_long ?? 0) > 0">
+              <div class="row py-3">
+                <div class="col">
+                  <h3>Capital Gains (Long):</h3>
+                </div>
+                <div class="col">
+                  <h3>{{ capital_gains_long | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="w-100" *ngIf="(capital_gains_short ?? 0) > 0">
+              <div class="row py-3">
+                <div class="col">
+                  <h3>Capital Gains (Short):</h3>
+                </div>
+                <div class="col">
+                  <h3>{{ capital_gains_short | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                </div>
+              </div>
+            </div>
             <h2 class="text-start text-decoration-underline">Deductions:</h2>
             <div class="w-100">
               <div class="row py-3">
@@ -225,6 +261,26 @@
                 </div>
                 <div class="col">
                   <h3>-{{ hsa_contributions | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="w-100" *ngIf="(capital_gains_long ?? 0) < 0">
+              <div class="row py-3">
+                <div class="col">
+                  <h3>Capital Losses (Long):</h3>
+                </div>
+                <div class="col">
+                  <h3>{{ capital_gains_long | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="w-100" *ngIf="(capital_gains_short ?? 0) < 0">
+              <div class="row py-3">
+                <div class="col">
+                  <h3>Capital Losses (Short):</h3>
+                </div>
+                <div class="col">
+                  <h3>{{ capital_gains_short | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
                 </div>
               </div>
             </div>
