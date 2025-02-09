@@ -17,4 +17,10 @@ Override default build directory:
 <!-- `ng build --output-path docs --base-href /tax-calculator/` -->
 This will change the artifacts to be saved to `docs/`.
 
+```
+npm run build
+```
 
+```
+npm run test
+```
