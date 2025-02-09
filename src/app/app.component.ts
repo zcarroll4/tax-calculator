@@ -204,15 +204,9 @@ export class AppComponent implements OnInit {
   }
 
   deleteAllCookies(): void {
-    const cookies = document.cookie.split(";");
-  
-    for (let i = 0; i < cookies.length; i++) {
-      const cookie = cookies[i];
-      const eqPos = cookie.indexOf("=");
-      const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
-      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
-    }
-    window.location.reload();
+      this.cookieService.deleteAll();
+      this.resetData();
+      window.location.reload();
   }
 
   updateTaxableIncome() {
