@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   filing_status: string | undefined;
   tax_year: | number | undefined;
   standard_deduction: number | undefined;
+  total_income: number | undefined;
   gross_income: number | undefined;
   self_employment_income: number | undefined;
   taxable_income: number | undefined;
@@ -43,7 +44,9 @@ export class AppComponent implements OnInit {
   estimated_self_employed_medicare_taxes: number | undefined;
   estimated_employer_fica_contribution: number | undefined;
   estimated_total_taxes: number | undefined;
+  estimated_long_term_capital_gains_taxes : number | undefined;
   estimated_net_income: number | undefined;
+  capitalGainsRate: number = 0.00;
   
   constructor(private cookieService: CookieService) { }
 
@@ -213,9 +216,11 @@ export class AppComponent implements OnInit {
     if (!this.gross_income) return;
     if (!this.standard_deduction) return;
     if (!this.self_employment_income) {
+      this.total_income = +this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0);
       this.taxable_income = +this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - this.standard_deduction - (this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
       this.state_taxable_income = +this.gross_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
     } else {
+      this.total_income = +this.gross_income + +this.self_employment_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0);
       this.taxable_income = +this.gross_income + +this.self_employment_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - this.standard_deduction -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
       this.state_taxable_income = +this.gross_income + +this.self_employment_income + +(this.capital_gains_long ?? 0) + +(this.capital_gains_short ?? 0) - 2000 -(this.traditional_retirement_contributions ?? 0) - (this.hsa_contributions ?? 0) - (this.insurance_premiums ?? 0);
     }
@@ -253,14 +258,13 @@ export class AppComponent implements OnInit {
     //debug
     this.updateStandardDeduction();
     this.updateTaxableIncome();
-    console.log(this.gross_income);
-    console.log(this.standard_deduction);
-    console.log(this.taxable_income);
-    console.log(this.gross_income);
-    console.log(this.state_taxable_income);
-    console.log(this.filing_status);
-    console.log(this.tax_year);
-    console.log(this.self_employment_income);
+    console.log('Gross Income: ' + this.gross_income);
+    console.log('Standard Deduction: ' + this.standard_deduction);
+    console.log('Taxable Income: ' + this.taxable_income);
+    console.log('State Taxable Income: ' + this.state_taxable_income);
+    console.log('Filing Status: ' + this.filing_status);
+    console.log('Tax Year: ' + this.tax_year);
+    console.log('Self Employment Income: ' + this.self_employment_income);
     
     if (!this.taxable_income) return;
     if (this.hasSelfEmploymentIncome && !this.self_employment_income) this.hasSelfEmploymentIncome = false;
@@ -274,16 +278,20 @@ export class AppComponent implements OnInit {
     if(this.hasRetirementContributions || this.hasRetirementRothContributions) this.total_retirement_contributions = +(this.traditional_retirement_contributions ?? 0) + + (this.roth_retirement_contributions ?? 0) ;
     this.calculateStateTaxes();
     this.calculateFica();
+    this.calculateCapitalGains();
 
     this.saveToCookie();
     if (this.tax_year == 2025) {
       if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
         if (this.taxable_income > 11925) {
           this.estimated_taxes = 1192.5;
+          console.table(["$0-$11,925 Income (10%)", "$1,192.5 Taxes"])
           if (this.taxable_income > 48475) {
             this.estimated_taxes += 4386;
+            console.table(["$11,926-$48,475 Income (12%)", "$4,386 Taxes"])
           } else {
             this.estimated_taxes += Math.round((this.taxable_income - 11925) * .12);
+            console.table([this.taxable_income+"-$11,926 (12%)", "$4,386 Taxes"])
             this.calculateTotalTaxes();
             return;
           }
@@ -637,8 +645,39 @@ export class AppComponent implements OnInit {
     }
   }
 
+  calculateCapitalGains(){
+    if(!this.taxable_income || !this.capital_gains_long) return;
+    // if(this.tax_year == 2024){
+      if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
+        if(this.taxable_income < 47026) this.capitalGainsRate = 0.00;
+        if(this.taxable_income > 47025) this.capitalGainsRate = 0.15;
+        if(this.taxable_income > 518900) this.capitalGainsRate = 0.20;
+      }
+      else if (this.filing_status == 'Married Filing Jointly') {
+        if(this.taxable_income < 94051) this.capitalGainsRate = 0.00;
+        if(this.taxable_income > 94050) this.capitalGainsRate = 0.15;
+        if(this.taxable_income > 583751) this.capitalGainsRate = 0.20;
+      }
+    // }
+    if(this.tax_year == 2025){
+      if (this.filing_status == 'Single' || this.filing_status == 'Married Filing Separately') {
+        if(this.taxable_income < 48351) this.capitalGainsRate = 0.00;
+        if(this.taxable_income > 48350) this.capitalGainsRate = 0.15;
+        if(this.taxable_income > 533400) this.capitalGainsRate = 0.20;
+      }
+      else if (this.filing_status == 'Married Filing Jointly') {
+        if(this.taxable_income < 96701) this.capitalGainsRate = 0.00;
+        if(this.taxable_income > 96700) this.capitalGainsRate = 0.15;
+        if(this.taxable_income > 600051) this.capitalGainsRate = 0.20;
+      }
+    }
+    this.estimated_long_term_capital_gains_taxes = this.capital_gains_long * this.capitalGainsRate;
+    console.log('Estaimted Long Term Capital Gains: ' + this.estimated_long_term_capital_gains_taxes)
+  }
+
   calculateFica() {
     if (!this.gross_income) return;
+    console.log('FICA Income: ' + this.gross_income);
     this.estimated_social_security_taxes = this.gross_income * .062;
     this.estimated_medicare_taxes = this.gross_income * .0145;
 
@@ -658,7 +697,7 @@ export class AppComponent implements OnInit {
   calculateTotalTaxes() {
     if (!this.gross_income) return;
     // this.estimated_total_taxes = (this.estimated_state_taxes ?? 0) + (this.estimated_social_security_taxes ?? 0) + (this.estimated_medicare_taxes ?? 0) + (this.estimated_taxes ?? 0) - (this.estimated_employer_fica_contribution ?? 0);
-    this.estimated_total_taxes = +(this.estimated_state_taxes ?? 0) + +(this.estimated_social_security_taxes ?? 0) + +(this.estimated_medicare_taxes ?? 0) + +(this.estimated_taxes ?? 0);
+    this.estimated_total_taxes = +(this.estimated_state_taxes ?? 0) + +(this.estimated_social_security_taxes ?? 0) + +(this.estimated_medicare_taxes ?? 0) + +(this.estimated_taxes ?? 0) + +(this.estimated_long_term_capital_gains_taxes ?? 0);
     this.estimated_net_income = +(this.gross_income) + +(this.self_employment_income ?? 0) - this.estimated_total_taxes - (this.hsa_contributions ?? 0) - (this.traditional_retirement_contributions ?? 0) - (this.roth_retirement_contributions ?? 0);
   }
 
@@ -667,6 +706,7 @@ export class AppComponent implements OnInit {
     this.estimated_net_income = undefined;
     this.estimated_taxes = undefined;
     this.estimated_total_taxes = undefined;
+    this.estimated_long_term_capital_gains_taxes = undefined;
     this.estimated_state_taxes = undefined;
     this.estimated_social_security_taxes = undefined;
     this.estimated_medicare_taxes = undefined;    

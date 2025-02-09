@@ -350,6 +350,16 @@
             <div class="w-100">
               <div class="row py-3">
                 <div class="col">
+                  <h3>Capitl Gain Taxes (Long): </h3>
+                </div>
+                <div class="col">
+                  <h3>{{ estimated_long_term_capital_gains_taxes | currency : 'USD' : 'symbol' : '1.0-0'}} ({{capitalGainsRate | percent  : '1.2-2'}})</h3>
+                </div>
+              </div>
+            </div>
+            <div class="w-100">
+              <div class="row py-3">
+                <div class="col">
                   <h3>Social Security Taxes: </h3>
                 </div>
                 <div class="col">
@@ -385,7 +395,7 @@
                   <h3>Total Income: </h3>
                 </div>
                 <div class="col">
-                  <h3>{{ ((gross_income??0)+ +(self_employment_income??0)) | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
+                  <h3>{{ (total_income ?? 0) | currency : 'USD' : 'symbol' : '1.0-0'}}</h3>
                 </div>
               </div>
             </div>
